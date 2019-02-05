@@ -1,0 +1,24 @@
+;; shadow-cljs configuration
+{:source-paths [
+                "lib"
+                "src"
+               ]
+
+ :dependencies [
+                [reagent "0.8.1"]
+                [org.clojure/tools.reader "1.3.2"]
+               ]
+
+ :builds
+ {:dev {:target :node-library
+
+        :compiler-options {:infer-externs :auto}
+        :exports {
+                  :config harlock.core/config ; settings panel
+                  :activate harlock.core/activate
+                  :deactivate harlock.core/deactivate
+                 }
+
+        :output-dir "lib/js"
+        :output-to "lib/main.js"
+        :devtools {:before-load-async harlock.core/before}}}}

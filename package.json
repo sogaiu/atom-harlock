@@ -1,0 +1,32 @@
+{
+  "name": "harlock",
+  "main": "./lib/main",
+  "version": "0.0.1",
+  "description": "Socket REPL client for Arcadia",
+  "keywords": [],
+  "repository": "https://github.com/sogaiu/atom-harlock",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "package-deps": [
+    "atom-ide-terminal:5.0.1"
+  ],
+  "dependencies": {
+    "atom-package-deps": "5.0.0",
+    "create-react-class": "^15.6.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
+  "activationCommands": {
+    "atom-workspace": [
+      "harlock:connect-to-arcadia-socket-repl"
+    ]
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "shadow-cljs": "^2.6.6",
+    "source-map-support": "^0.5.9",
+    "ws": "^6.0.0"
+  }
+}

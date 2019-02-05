@@ -1,0 +1,29 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Harlock'
+      'submenu': [
+        {'label': 'Start REPL', 'command': 'harlock:connect-to-arcadia-socket-repl'}
+        {'label': 'Stop REPL', 'command': 'harlock:disconnect'}
+        {'label': 'Send Line', 'command': 'harlock:send-line'}
+        {'label': 'Send Selection', 'command': 'harlock:send-selection'}
+        {'label': 'Send Block', 'command': 'harlock:send-block'}
+        {'label': 'Send File', 'command': 'harlock:send-file'}
+        {'label': 'Load File', 'command': 'harlock:load-file'}
+        {'label': 'Switch to File NS', 'command': 'harlock:switch-to-file-ns'}
+      ]
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Harlock'
+      'submenu': [
+        {'label': 'Start REPL', 'command': 'harlock:connect-to-arcadia-socket-repl'}
+        {'label': 'Stop REPL', 'command': 'harlock:disconnect'}
+      ]
+    ]
+  }
+]
