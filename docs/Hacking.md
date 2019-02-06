@@ -8,9 +8,9 @@ yarn
 yarn shadow-cljs watch dev
 ```
 
-This will start up a compiler for ClojureScript.  If you symlink the directory under `~/.atom/packages/`, you can use it while developing itself!
+This will start up a compiler for ClojureScript.  Symlinking the directory under `~/.atom/packages/` is convenient for development.
 
-Please note that Harlock only activates via its "connect-to-arcadia-socket-repl" command. You don't **need** to connect into a Clojure REPL, just invoke the command.
+Please note that Harlock only activates via its "connect-to-arcadia-socket-repl" command.
 
 Once Harlock is activated, connect to a cljs repl by:
 
