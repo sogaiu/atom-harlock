@@ -2,9 +2,9 @@
   (:require [harlock.atom :as ha]))
 
 (def term-str-template
-  {:darwin "nc %s %s"
-   :linux "rlwrap nc %s %s"
-   :win32 "ncat.exe %s %s"})
+  {:darwin "nc -6 %s %s"
+   :linux "rlwrap nc -6 %s %s"
+   :win32 "ncat.exe -6 %s %s"})
 
 (def config
   {:warn-at-terminal
@@ -15,7 +15,7 @@
    :repl-host
    {:description "REPL host name"
     :type :string
-    :default "::1"}
+    :default "localhost"}
    ;;
    :repl-port
    {:description "REPL port"
