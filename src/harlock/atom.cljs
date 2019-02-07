@@ -2,17 +2,13 @@
   (:require [clojure.string :as cs]
             [harlock.read :as hr]))
 
-(def platform-strs
-  ["platform-darwin" "platform-linux" "platform-win32"])
-
 (defn current-platform
   []
-  (let [clist (.-classList (.-body js/document))]
-    (loop [[plat & plats] platform-strs]
-      (if (.contains clist plat)
-        (keyword (subs plat
-                       (inc (cs/index-of plat "-"))))
-        (recur plats)))))
+  (let [os-type (.type (js/require "os"))]
+    (case os-type
+      "Darwin" :darwin
+      "Linux" :linux
+      "Windows_NT" :win32)))
 
 ;; thanks to atom-packages-dependencies
 (defn path-for-pkg
