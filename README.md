@@ -55,8 +55,7 @@ With an appropriate .clj file open in Atom:
 * file, or
 * block (non-empty lines between empty lines)
 
-may be sent to the REPL via the context-sensitive menu.  These should
-appear via the Harlock submenu.
+may be sent to the REPL via the editor's context-sensitive menu.
 
 ### Other
 
