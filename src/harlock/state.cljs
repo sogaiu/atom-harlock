@@ -1,6 +1,9 @@
 (ns harlock.state
   (:require [harlock.atom :as ha]))
 
+(def eol
+  (.-EOL (js/require "os")))
+
 (def term-str-template
   {:darwin "nc -6 %s %s"
    :linux "rlwrap nc -6 %s %s"
@@ -38,45 +41,34 @@
 
 (defn make-darwin-warn-str
   [pre-warning warning template-str]
-  (str "# "
-       pre-warning
-       "\n"
-       "# e.g. nc -- macos should come with this pre-installed"
-       "\n"
-       "# may also want rlwrap for convenient editing -- see homebrew"
-       "\n"
-       "\n"
-       "# "
-       warning
-       "\n"
+  (str "# " pre-warning eol
+       "#" eol
+       "# e.g. nc -- macos should come with this pre-installed" eol
+       "#      recommended: rlwrap for convenient editing -- see homebrew" eol
+       eol
+       "# " warning eol
        template-str))  
 
 (defn make-linux-warn-str
   [pre-warning warning template-str]
-  (str "# "
-       pre-warning
-       "\n"
-       "# e.g. nc -- GNU netcat or OpenBSD netcat, may need to install"
-       "\n"
-       "# may also want rlwrap for convenient editing"
-       "\n"
-       "\n"
-       "# "
-       warning
-       "\n"
+  (str "# " pre-warning eol
+       "#" eol
+       "# e.g. nc -- may need to install GNU netcat or OpenBSD netcat" eol
+       "#      recommended: rlwrap for convenient editing" eol
+       eol
+       "# " warning eol
        template-str))
 
 (defn make-win32-warn-str
   [pre-warning warning template-str]
-  (str "REM "
-       pre-warning
-       "\n"
-       "REM e.g. ncat.exe -- https://nmap.org/dist/ncat-portable-5.59BETA1.zip"
-       "\n"
-       "\n"
-       "REM "
-       warning
-       "\n"
+  (str "# " pre-warning eol
+       "#" eol
+       "# e.g. ncat.exe should be in your PATH" eol
+       "#      https://nmap.org/dist/ncat-portable-5.59BETA1.zip" eol
+       "#      sha256 checksum:" eol
+       "#      5e107ea10383110bd801fb7de11f59ee35f02b8e1defcadf34c0e3e769df9341"
+       eol eol
+       "# " warning eol
        template-str))
 
 (defn make-term-str
